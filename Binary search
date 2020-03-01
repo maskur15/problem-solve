@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int x[10]={12,4,45,3,56,48,9,65,36,25};
+    sort(x,x+10);
+
+    for(int i=0;i<10;i++)
+        cout << x[i] << " " ;
+    cout <<  endl;
+    int l=0,r=9,mid,n,c;
+    cin >> n;
+    while(l<=r)
+    {
+        mid=(l+r)/2;
+        if(n==x[mid])
+            {
+                cout << n << "exist at position : " << mid+1 << endl;
+                break;
+            }
+        else if(n>x[mid])
+        l=mid+1;
+        else
+            r=mid-1;
+
+    }
+    if(l>r)
+        cout << n << " doesn't exist in the array. " << endl;
+}
