@@ -1,0 +1,30 @@
+///start try success
+///sort a class
+#include<bits/stdc++.h>
+using namespace std;
+class  drag
+{
+  public:  int x,y;
+   public:    void input()
+    {
+        cin >> x >> y;
+    }
+    bool operator < (const drag& cmp) const{
+        return x <cmp.x;   ///here is the comparison
+    }
+
+};
+int main()
+{
+     int n,i;
+     cin >>  n;
+     drag d[n];
+     for(i=0;i<n;i++)
+     {
+         d[i].input();
+     }
+     sort(d,d+n); ///sort mehtod to call the class;
+     for(i=0;i<n;i++)
+        cout << d[i].x << " " << d[i].y << endl;
+}
+
