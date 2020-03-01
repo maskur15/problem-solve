@@ -1,0 +1,49 @@
+///start try success
+///BFS USING SSS
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    queue<int>q,q2;
+    vector<vector<int> > vect; // adjiacancy vector
+    int a,b,i,j,n,start_vertex;
+    cin >> n;   // number of edge
+    cin >> start_vertex;
+    vect.resize(100); // indexing 2d vector 0 to 100
+    bool *vist=new bool[100]; //bool 0 to 100 as false
+    while(n--)
+    {
+        cin >> a >> b;
+        vect[a].push_back(b);
+    }
+
+    vist[start_vertex]=true; // 0 as starting vertex
+     q.push(start_vertex);
+     while(!q.empty())
+
+     {
+         int current_vertex=q.front();
+       //  cout << current_vertex <<  " ";
+        // q2.push(current_vertex);
+
+         q.pop();
+         for(auto a =vect[current_vertex].begin();a!=vect[current_vertex].end();a++)
+         {
+             int adjvertex=*a;
+             //cout << adjvertex << endl;
+             if(!vist[adjvertex])
+             {
+                 q.push(adjvertex);
+                 vist[adjvertex]=true;
+             }
+         }
+     }
+     cout << endl;
+     while(!q2.empty())
+     {
+         cout << q2.front() << " ";
+         q2.pop();
+     }
+
+
+}
