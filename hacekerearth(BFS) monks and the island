@@ -1,0 +1,49 @@
+///start try success
+ ///https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/monk-and-the-islands/
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,m,x,y;
+ 
+    cin >> t;
+    while(t--)
+    {
+        cin >> n >> m ;
+        vector< vector<int> > adj;
+        adj.resize(100000);
+        int cost[100000];
+        while(m--)
+        {
+            cin >> x >> y;
+            adj[x].push_back(y);
+            adj[y].push_back(x);
+            cost[x]=-1;
+            cost[y]=-1;
+ 
+        }
+        queue <int> q;
+        q.push(1);
+        cost[1]=0;
+ 
+        while(!q.empty())
+        {
+            int temp=q.front();
+            q.pop();
+            for(auto a=adj[temp].begin();a!=adj[temp].end();a++)
+            {
+                int ad=*a;
+ 
+                if(cost[ad]==-1)
+                {
+                    cost[ad]=1+cost[temp]; q.push(ad);
+                }
+               // cout << cost[ad] << " ";
+            }
+ 
+ 
+        }
+        cout << cost[n] << endl ;
+ 
+    }
+}
