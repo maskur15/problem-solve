@@ -1,0 +1,12 @@
+///https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/submissions/code/169123770
+SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) {
+SinglyLinkedListNode* temp = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));  temp->data= data;
+  if(llist==NULL)
+  {
+      temp->next= NULL ; llist=temp;
+  }
+  else {
+      temp->next=llist; llist=temp;
+  }
+  return llist;
+}
