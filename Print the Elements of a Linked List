@@ -1,0 +1,11 @@
+///https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list/copy-from/121337771
+void printLinkedList(SinglyLinkedListNode* head) {
+ while(head!=NULL)
+ {
+      cout << head->data << endl;
+      head=head->next;
+      
+ }
+
+
+}
