@@ -1,0 +1,83 @@
+///Delete fromm linked list
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node *next;
+};
+Node *head = NULL;
+void push(int data)
+{
+    Node *new_node= new Node();
+    new_node->data=data;
+    new_node->next=NULL;
+    if(head==NULL)
+    {
+        head=new_node; return ;
+    }
+    Node *temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+
+        temp->next=new_node;
+
+}
+void print(Node *head)
+{
+     Node *temp=head;
+    while(temp!=NULL)
+    {
+      cout << temp->data << " ";
+      temp=temp->next;
+    }
+}
+void deleteFromList(int x)
+{
+    Node *temp = head;
+    Node *prev = new Node();
+    if(temp!=NULL&&temp->data==x)
+    {
+        head=head->next;
+        free(temp);
+         return;
+    }
+    while(temp!=NULL&&temp->data!=x)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+    if(temp==NULL)
+    {
+        cout << "KEy not found " << endl;
+        return;
+    }
+    prev->next=temp->next;
+    free(temp);
+
+}
+int main()
+{
+
+    int n,a,i,d;
+    cout << "How many number's do you want to insert : ";
+
+    cin >> n;
+    for(i=1;i<=n;i++)
+    {
+        cout << "Enter the number : ";
+        cin >> a;
+        push(a);
+    }
+    cout << "\nThe list are as follows : ";
+    print(head);
+    cout << "\n Enter the key you want to delete : " ;
+    cin >> d;
+    deleteFromList(d);
+    cout << "\nAfter delete : ";
+    print(head);
+
+}
