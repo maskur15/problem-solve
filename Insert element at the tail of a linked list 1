@@ -1,0 +1,52 @@
+///Insert at the tail of a linked list
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node *next;
+};
+Node *head = NULL;
+void push(int data)
+{
+    Node *new_node= new Node();
+    new_node->data=data;
+    new_node->next=NULL;
+    if(head==NULL)
+    {
+        head=new_node;
+       // cout << head->data << endl;
+        return;
+    }
+    Node *temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp->next=new_node;
+}
+void print()
+{
+
+    while(head!=NULL)
+    {
+      cout << head->data << " ";
+      head=head->next;
+    }
+}
+int main()
+{
+
+    int n,a,i;
+    cout << "How many number's do you want to insert : ";
+
+    cin >> n;
+    for(i=1;i<=n;i++)
+    {
+        cout << "Enter the number : ";
+        cin >> a;
+        push(a);
+    }
+    print();
+}
