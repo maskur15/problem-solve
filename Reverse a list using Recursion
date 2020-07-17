@@ -1,0 +1,10 @@
+void ReversePrint(Node head) {
+
+if(head == null)
+    ;
+else{
+    ReversePrint(head.next);
+    System.out.println(head.data);
+}
+}
+///https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/forum
