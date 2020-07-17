@@ -1,0 +1,16 @@
+///
+https://www.hackerrank.com/challenges/reverse-a-linked-list/problem
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
+SinglyLinkedListNode *headref = NULL;
+while(head!=NULL)
+{
+    SinglyLinkedListNode *nnode =(SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+
+     nnode->data=head->data;
+     nnode->next= headref;
+     headref=nnode;
+     head=head->next;
+}
+
+return headref;
+}
