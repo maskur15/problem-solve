@@ -1,0 +1,13 @@
+void getRv()
+{
+    Node *headref=NULL;
+    while(head!=NULL)
+    {
+        Node *temp=new Node();
+        temp->data=head->data;
+        temp->next=headref;
+        headref=temp;
+        head=head->next;
+    }
+    head=headref;
+}
