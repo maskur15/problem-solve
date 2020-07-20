@@ -1,0 +1,60 @@
+///???IN THE NAME OF ALLAH
+
+///KNOWLEDGE comes from ALMIGHTY
+///OH lord! ENrich me in knowledge
+
+#include<bits/stdc++.h>
+using namespace std;
+ int predecessor[100];
+int main()
+{
+    int n,k,a,b;
+    vector<vector<int> > vt; // adjiacancy vector
+    queue<int> q;
+    cin >> n;
+    vt.resize(100);
+    for(k=1;k<=n;k++)
+    {
+        cin >> a >> b;
+        vt[a].push_back(b);
+    }
+
+    bool *visit=new bool[100];
+    cout << "Enter the starting vertex : ";
+    int start;
+    cin >> start;
+    q.push(start);
+    visit[start]=true;
+    while(!q.empty())
+    {
+        int current = q.front();
+
+        cout << current << " " ;
+        q.pop();
+        for(auto i=vt[current].begin();i!=vt[current].end();i++)
+        {
+            int adj=*i;
+            if(!visit[adj])
+             {
+                 q.push(adj);  predecessor[adj]=current; //cout << "x" << predecessor[adj] << endl;
+                 visit[adj]=true;
+             }
+        }
+    }
+    cout << "predecessor of the node are : " << endl;
+    for(k=1;k<=n+1;k++)
+    {
+        cout << k << " : " << predecessor[k] << endl;
+    }
+
+
+}
+/%use this test case
+5
+1 2
+1 3
+2 4
+2 5
+3 6
+//source as 1 
+%/
