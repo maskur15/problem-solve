@@ -1,0 +1,30 @@
+int findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+      SinglyLinkedListNode *p1 = head1;
+      SinglyLinkedListNode *p2=head2;
+      int c1=0,c2=0;
+      while(p1!=NULL)
+      {
+          c1++; p1=p1->next;
+      }
+      while(p2!=NULL)
+      {
+          c2++; p2=p2->next;
+      }
+      if(c1>c2)
+      {
+        for(int i=1;i<=(c1-c2);i++)
+             head1=head1->next;
+      }
+      else
+      {
+          for(int i=1;i<=(c2-c1);i++)
+          head2=head2->next;
+      }
+      while(head1!=head2)
+      {
+          head1=head1->next;
+          head2=head2->next;
+      }
+      return head1->data ;
+      
+}
